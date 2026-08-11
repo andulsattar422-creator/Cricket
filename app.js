@@ -157,7 +157,7 @@ function openAdminSecurity() {
 
 function setupAdminShortcut() {
     document.addEventListener('keydown', (e) => {
-        if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+        if (e.ctrlKey && e.shiftKey && e.key === 's') {
             openAdminSecurity();
         }
     });
