@@ -148,7 +148,7 @@ function comparePlayers() {
 
 function openAdminSecurity() {
     const password = prompt("Enter Secret Admin Password:");
-    if (password === "780780") {
+    if (password === "781781") {
         window.location.href = "admin.html";
     } else if (password !== null) {
         alert("Incorrect Password! Access Denied.");
