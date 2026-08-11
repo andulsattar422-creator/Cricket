@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junior Cricket League - Official Portal</title>
+    <link rel="icon" type="image/jpeg" href="4.JPG">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Responsive Glass Navigation Bar -->
+    <header class="glass-navbar">
+        <div class="logo">
+            <i class="fa-solid fa-trophy glowing-icon"></i>
+            <span>JUNIOR<small>CRICKET LEAGUE</small></span>
+        </div>
+        <nav class="nav-links">
+            <a href="#matches"><i class="fa-solid fa-calendar-days"></i> Matches</a>
+            <a href="#players"><i class="fa-solid fa-users"></i> Players</a>
+            <a href="#compare"><i class="fa-solid fa-scale-balanced"></i> Compare</a>
+            <a href="#register"><i class="fa-solid fa-id-card"></i> Register</a>
+        </nav>
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" onkeyup="filterData()" placeholder="Search player or team...">
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="dashboard-container">
+
+        <!-- Hero Section -->
+        <section class="hero-card">
+            <div class="hero-overlay">
+                <span class="badge-tag"><i class="fa-solid fa-bolt"></i> Junior League 2026</span>
+                <h1>Junior Cricket Performance & Management Portal</h1>
+                <p>Track player stats, team match posters, submit reports, and register online.</p>
+            </div>
+        </section>
+
+        <!-- Upcoming Matches Section with Team Pictures -->
+        <section id="matches" class="section-wrapper">
+            <h2 class="neon-heading"><i class="fa-regular fa-calendar-check"></i> Upcoming Match Announcements & Team Posters</h2>
+            <div id="matchesGrid" class="cards-grid">
+                <!-- Loaded dynamically from JS -->
+            </div>
+        </section>
+
+        <!-- Player Comparison Tool -->
+        <section id="compare" class="section-wrapper compare-section">
+            <h2 class="neon-heading"><i class="fa-solid fa-scale-balanced"></i> Player Comparison Engine</h2>
+            <div class="compare-selectors">
+                <select id="player1Select" onchange="comparePlayers()"></select>
+                <div class="vs-circle">VS</div>
+                <select id="player2Select" onchange="comparePlayers()"></select>
+            </div>
+            <div id="comparisonDisplay" class="comparison-results">
+                <!-- Comparison results rendered here -->
+            </div>
+        </section>
+
+        <!-- Player Career Cards Section -->
+        <section id="players" class="section-wrapper">
+            <h2 class="neon-heading"><i class="fa-solid fa-id-card"></i> Player Records & Statistics</h2>
+            <div id="playersGrid" class="cards-grid">
+                <!-- Loaded dynamically from JS -->
+            </div>
+        </section>
+
+        <!-- Online Player Registration Form -->
+        <section id="register" class="section-wrapper registration-section">
+            <h2 class="neon-heading"><i class="fa-solid fa-user-plus"></i> Online Player Registration & Match Booking</h2>
+            <form id="registrationForm" onsubmit="handleRegistration(event)">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Full Name *</label>
+                        <input type="text" id="regName" placeholder="Enter full name" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Father's Name *</label>
+                        <input type="text" id="regFatherName" placeholder="Enter father's name" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Phone / WhatsApp Number *</label>
+                        <input type="text" id="regPhone" placeholder="0344XXXXXXX" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Registration Fee Status / Payment Ref *</label>
+                        <input type="text" id="regPayment" placeholder="e.g. Paid via JazzCash/EasyPaisa" required>
+                    </div>
+                </div>
+                <div class="input-group full-width">
+                    <label>Player Role & Description / Match Feedback</label>
+                    <textarea id="regDescription" rows="4" placeholder="Enter details about your playing position, preferred match dates, or feedback..."></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> Submit Registration</button>
+                    <button type="button" class="whatsapp-btn" onclick="sendToWhatsApp()"><i class="fa-brands fa-whatsapp"></i> Send Direct to WhatsApp</button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Floating WhatsApp Action Button -->
+    <a href="https://wa.me/923446825447?text=Hello!%20I%20want%20to%20inquire%20about%20Junior%20Cricket%20League%20registration." class="floating-whatsapp" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer with Secret Admin Link -->
+    <footer>
+        <p>&copy; 2026 Junior Cricket League. All Rights Reserved. 
+           <span onclick="openAdminSecurity()" class="secret-admin-trigger" title="Admin Login"><i class="fa-solid fa-lock"></i></span>
+        </p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

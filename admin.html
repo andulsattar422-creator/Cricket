@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="glass-navbar">
+        <div class="logo"><span>ADMIN<small>PANEL</small></span></div>
+        <a href="index.html" class="submit-btn" style="text-decoration:none;">Back to Home</a>
+    </header>
+
+    <main class="dashboard-container">
+        <!-- Add Match Form with File Upload Buttons -->
+        <section class="heavy-card" style="margin-bottom:30px;">
+            <h2 class="neon-heading">Add Match</h2>
+            <form onsubmit="addMatch(event)" class="form-grid">
+                <input type="text" id="mA" placeholder="Team A Name" required>
+                <label style="color:var(--neon-green); font-size:0.85rem;">Team A Logo Image:</label>
+                <input type="file" id="mAImgFile" accept="image/*" required>
+                
+                <input type="text" id="mB" placeholder="Team B Name" required>
+                <label style="color:var(--neon-green); font-size:0.85rem;">Team B Logo Image:</label>
+                <input type="file" id="mBImgFile" accept="image/*" required>
+                
+                <label style="color:var(--neon-cyan); font-size:0.85rem;">Match Poster Image:</label>
+                <input type="file" id="mBannerFile" accept="image/*" required>
+                
+                <input type="text" id="mDate" placeholder="Date & Time" required>
+                <input type="text" id="mVenue" placeholder="Venue Name" required>
+                <input type="text" id="mDesc" placeholder="Match Description" required>
+                <button type="submit" class="submit-btn">Publish Match</button>
+            </form>
+        </section>
+
+        <!-- Manage Matches List -->
+        <section class="heavy-card" style="margin-bottom:30px;">
+            <h2 class="neon-heading">Manage & Delete Matches</h2>
+            <div id="adminMatchesList"></div>
+        </section>
+
+        <!-- Add Player Form with File Upload Button -->
+        <section class="heavy-card" style="margin-bottom:30px;">
+            <h2 class="neon-heading">Add Player</h2>
+            <form onsubmit="addPlayer(event)" class="form-grid">
+                <input type="text" id="pName" placeholder="Player Name" required>
+                <input type="text" id="pTeam" placeholder="Team Name" required>
+                
+                <label style="color:var(--neon-green); font-size:0.85rem;">Player Image:</label>
+                <input type="file" id="pImgFile" accept="image/*" required>
+                
+                <input type="text" id="pRole" placeholder="Role (Batsman/Bowler)" required>
+                <input type="number" id="pRuns" placeholder="Runs" required>
+                <input type="number" id="pBalls" placeholder="Balls Faced" required>
+                <input type="number" id="pWickets" placeholder="Wickets" required>
+                <input type="number" id="pOvers" step="0.1" placeholder="Overs Bowled" required>
+                <input type="number" id="pRunsCon" placeholder="Runs Conceded" required>
+                <button type="submit" class="submit-btn">Save Player</button>
+            </form>
+        </section>
+
+        <!-- Manage Players List -->
+        <section class="heavy-card">
+            <h2 class="neon-heading">Manage & Delete Players</h2>
+            <div id="adminPlayersList"></div>
+        </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
